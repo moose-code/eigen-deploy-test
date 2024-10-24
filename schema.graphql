@@ -1,0 +1,63 @@
+type EigenPodManager_BeaconChainETHDeposited {
+  id: ID!
+  podOwner: String!
+  amount: BigInt!
+}
+
+type EigenPodManager_BeaconChainETHWithdrawalCompleted {
+  id: ID!
+  podOwner: String!
+  shares: BigInt!
+  nonce: BigInt!
+  delegatedAddress: String!
+  withdrawer: String!
+  withdrawalRoot: String!
+}
+
+type EigenPodManager_Initialized {
+  id: ID!
+  version: BigInt!
+}
+
+type EigenPodManager_NewTotalShares {
+  id: ID!
+  podOwner: String!
+  newTotalShares: BigInt!
+}
+
+type EigenPodManager_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type EigenPodManager_Paused {
+  id: ID!
+  account: String!
+  newPausedStatus: BigInt!
+}
+
+type EigenPodManager_PauserRegistrySet {
+  id: ID!
+  pauserRegistry: String!
+  newPauserRegistry: String!
+}
+
+type EigenPodManager_PodDeployed {
+  id: ID!
+  eigenPod: String!
+  podOwner: String!
+}
+
+type EigenPodManager_PodSharesUpdated {
+  id: ID!
+  podOwner: String!
+  sharesDelta: BigInt!
+}
+
+type EigenPodManager_Unpaused {
+  id: ID!
+  account: String!
+  newPausedStatus: BigInt!
+}
+

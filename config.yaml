@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 1
+  start_block: 0
+  contracts:
+  - name: EigenPodManager
+    address:
+    - 0x91E677b07F7AF907ec9a428aafA9fc14a0d3A338
+    handler: src/EventHandlers.ts
+    events:
+    - event: BeaconChainETHDeposited(address indexed podOwner, uint256 amount)
+    - event: BeaconChainETHWithdrawalCompleted(address indexed podOwner, uint256 shares, uint96 nonce, address delegatedAddress, address withdrawer, bytes32 withdrawalRoot)
+    - event: Initialized(uint8 version)
+    - event: NewTotalShares(address indexed podOwner, int256 newTotalShares)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: Paused(address indexed account, uint256 newPausedStatus)
+    - event: PauserRegistrySet(address pauserRegistry, address newPauserRegistry)
+    - event: PodDeployed(address indexed eigenPod, address indexed podOwner)
+    - event: PodSharesUpdated(address indexed podOwner, int256 sharesDelta)
+    - event: Unpaused(address indexed account, uint256 newPausedStatus)
+rollback_on_reorg: false
